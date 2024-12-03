@@ -233,7 +233,7 @@ if (isset($_SESSION['user_ID'])) {
         const logOut = document.querySelector('.log-out');
 
         setTimeout(function() {
-          logOut.style.top = '3rem';
+          logOut.style.top = '2rem';
         }, 500);
 
         setTimeout(function() {
@@ -249,7 +249,7 @@ if (isset($_SESSION['user_ID'])) {
         const registerSuccess = document.querySelector('.register');
 
         setTimeout(function() {
-          registerSuccess.style.top = '3rem';
+          registerSuccess.style.top = '2rem';
         }, 500);
 
         setTimeout(function() {
@@ -271,7 +271,7 @@ if (isset($_SESSION['user_ID'])) {
           const logSuccess = document.querySelector('.log-success');
 
           setTimeout(function() {
-            logSuccess.style.top = '3rem';
+            logSuccess.style.top = '2rem';
           }, 500);
 
           setTimeout(function() {
@@ -287,7 +287,7 @@ if (isset($_SESSION['user_ID'])) {
           const updateSuccess = document.querySelector('.update-success');
 
           setTimeout(function() {
-            updateSuccess.style.top = '3rem';
+            updateSuccess.style.top = '2rem';
           }, 500);
 
           setTimeout(function() {
@@ -303,7 +303,7 @@ if (isset($_SESSION['user_ID'])) {
           const removedItem = document.querySelector('.item-removed');
 
           setTimeout(function() {
-            removedItem.style.top = '3rem';
+            removedItem.style.top = '2rem';
           }, 500);
 
           setTimeout(function() {
