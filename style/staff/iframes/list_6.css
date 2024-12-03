@@ -1,0 +1,140 @@
+:root {
+    --btn-color-new: rgb(44, 118, 255);
+    --text-color: rgb(255, 255, 255);
+
+    --btn-color-del: rgb(255, 64, 64);
+
+    --text-size-extra-small: .5rem;
+    --text-size-small: 1rem;
+    --text-size-medium: 1.5rem;
+    --text-size-large: 2rem;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+
+.data-container {
+    height: 100%;
+    overflow: auto;
+
+}
+
+.data-container table {
+    width: 100%;
+    border-collapse: collapse;
+
+
+
+    & th,
+    td {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    & th {
+        background-color: #cfcfcf;
+
+        font-size: calc(var(--text-size-small) + .3rem);
+
+        position: sticky;
+        top: 0;
+
+        z-index: 2;
+    }
+
+    th:has(button) {
+        text-align: center;
+    }
+
+    th:has(button) button {
+        padding: .5rem 1rem;
+        border-radius: 5px;
+
+        border: none;
+        color: var(--text-color);
+        background-color: var(--btn-color-new);
+
+        cursor: pointer;
+    }
+
+    & td {
+        font-size: calc(var(--text-size-small) + .3rem);
+
+    }
+
+    & tr:hover {
+        background-color: #e0e0e0;
+    }
+
+
+    & td:has(i) {
+        cursor: pointer;
+
+        z-index: 0;
+
+        text-align: center;
+    }
+
+    &,
+    th:nth-child(2),
+    td:nth-child(2) {
+        text-align: center;
+    }
+
+}
+
+/* FOR IMAGES ON PRODUCT LIST    */
+
+.product-img img {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* MENU POP  */
+
+.action-menu {
+    display: none;
+
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%);
+
+    position: absolute;
+    width: 10rem;
+
+    z-index: 1;
+
+    & button {
+        width: 5rem;
+        padding: .3rem;
+
+        color: white;
+
+        border-radius: 5px;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    & button:first-child {
+        background-color: var(--btn-color-new);
+    }
+
+    & button:last-child {
+        background-color: var(--btn-color-del);
+    }
+}

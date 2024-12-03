@@ -1,0 +1,148 @@
+:root {
+    --primary-color: #002050;
+    --primary-color-input-field: #001739;
+
+    --background-dark: #222222;
+
+    --header-height: 7rem;
+    --footer-height: 25rem;
+
+    --font-color-light: #f0f0f0;
+    --font-color-dark: #1f1f1f;
+
+    --text-size-extra-small: .5rem;
+    --text-size-small: 1rem;
+    --text-size-medium: 1.5rem;
+    --text-size-large: 2rem;
+
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+    transition: all 0.3s ease;
+
+
+
+}
+
+body {
+    background-color: var(--primary-color);
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.company-logo-hl {
+    width: 30%;
+    height: auto;
+
+    & img {
+        width: 100%;
+
+        mix-blend-mode: lighten;
+    }
+}
+
+
+.input-field-container {
+    background-color: var(--primary-color-input-field);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    gap: .5rem;
+
+    & button {
+        cursor: pointer;
+    }
+}
+
+
+
+.login-type_staff,
+.login-type_admin {
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+
+    & button {
+        padding: .5rem;
+        font-size: 1.3rem;
+        border-radius: 5px;
+
+        margin-bottom: 1rem;
+    }
+}
+
+
+.input-field {
+
+    & input {
+        width: 20rem;
+        height: 2.3rem;
+
+        border-radius: 5px;
+
+        outline: none;
+        padding-inline: 10px;
+
+        font-size: 1rem;
+    }
+
+    & input::placeholder {
+        color: black;
+    }
+
+}
+
+
+
+.login-type {
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & input[type="radio"] {
+        display: none;
+    }
+}
+
+.login-type label {
+    display: inline-block;
+    text-align: center;
+
+    width: 80px;
+    padding: .3rem;
+
+    border: solid 2px #ccc;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.login-type input[type="radio"]:checked+label {
+    border: 2px solid rgb(70, 70, 255);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

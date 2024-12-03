@@ -1,0 +1,302 @@
+:root {
+    --bg-primary: #00153b;
+    --font-color: #dddddd;
+
+    --btn-color-new: rgb(44, 118, 255);
+    --text-color: rgb(255, 255, 255);
+
+
+    --text-size-extra-small: .5rem;
+    --text-size-small: 1rem;
+    --text-size-medium: 1.5rem;
+    --text-size-large: 2rem;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+body {
+    overflow: hidden;
+
+
+}
+
+header {
+
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--bg-primary);
+
+
+    align-items: center;
+    padding: 0 50px 0 30px;
+
+
+    position: sticky;
+    top: 0;
+
+    height: 7rem;
+
+
+
+    & a img {
+        width: 100px;
+    }
+
+    & a,
+    i {
+        font-size: var(--text-size-large);
+        color: var(--font-color);
+
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+
+
+}
+
+/* MAIN START */
+
+main {
+
+    display: grid;
+    grid-template-columns: 15% 1fr;
+
+
+
+}
+
+/* SIDE NAV */
+
+nav {
+
+    background-color: var(--bg-primary);
+
+
+
+    display: flex;
+    justify-content: flex-start;
+
+    font-size: var(--text-size-medium);
+
+    height: auto;
+
+    padding: 0 .5rem;
+}
+
+/* NAV / FOR LINK SELECTION / FOR ALL*/
+nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100%;
+
+}
+
+
+/* TEXT OF LINK SELECTION */
+
+
+nav li a {
+    color: var(--font-color);
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    text-decoration: none;
+
+    padding: 1rem;
+}
+
+nav li:has(nav) a {
+    justify-content: space-between;
+}
+
+/* DROP DOWN */
+
+.drop-down-items {
+    display: none;
+
+    font-size: var(--text-size-small);
+}
+
+.drop-down-items a {
+    padding-left: 5rem;
+}
+
+/* ARROW ICON */
+.arrow-move {
+    transition: all 0.3s ease;
+
+    transform: rotate(-90deg);
+}
+
+/* CHANGE BACKGROUND COLOR OF SELECTED LINK */
+.active {
+    background-color: rgb(0, 1, 32);
+
+    border-radius: 10px;
+
+    width: 100%;
+}
+
+
+/* MAIN DISPLAY/ HERO */
+
+.hero {
+    height: calc(100vh - 7rem);
+    padding: 1rem;
+
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: 5rem 1fr;
+
+
+}
+
+
+/* ASIDE / DASHBOARD MAPPING */
+.map-info {
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+
+    position: sticky;
+    top: 0;
+
+    border-radius: 5px;
+
+
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+    padding: 0 1.5rem;
+
+    /* I INSIDE DASHBOARD */
+    & i {
+        font-size: var(--text-size-large);
+    }
+
+    /* H3 INSIDE DASHBOARD */
+    & h3 {
+        font-size: var(--text-size-medium);
+    }
+
+    /* SPAN INSIDE DASHBOARD */
+    & span {
+        font-size: var(--text-size-large);
+    }
+
+
+
+}
+
+.contents {
+    overflow: hidden;
+
+    border-radius: 10px;
+
+
+}
+
+
+.contents>iframe {
+    height: 100%;
+    width: 100%;
+
+    border: none;
+
+
+
+}
+
+
+
+/* SLIDE ON SIDE FOR USER */
+
+.staff-info-container {
+    background-color: green;
+
+
+    height: auto;
+    width: auto;
+
+    position: absolute;
+    right: -700px;
+    top: 7rem;
+
+    z-index: 999;
+
+
+    transition: all 0.3s ease;
+
+    & .exit {
+        color: white;
+        font-size: 2rem;
+    }
+}
+
+.staff-profile {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 1rem;
+
+    padding: 2.5rem 1rem 2rem;
+}
+
+.img-section img {
+    width: 5rem;
+    height: 5rem;
+
+    background-color: black;
+}
+
+.staff-info {
+    display: grid;
+
+    grid: 'staffName staffID'
+        'staffEmail staffEmail';
+    gap: .5rem;
+
+    & .staff-name {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    & .staff-email {
+        font-size: .8rem;
+    }
+}
+
+
+
+
+.action-btn button {
+
+    padding: .3rem;
+
+    font-size: .8rem;
+    border-radius: 5px;
+    border: none;
+
+    cursor: pointer;
+}

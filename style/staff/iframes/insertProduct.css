@@ -1,0 +1,229 @@
+:root {
+    --btn-add: rgb(30, 101, 255);
+    --btn-add-hover: rgb(3, 83, 255);
+
+    --btn-cancel-border: rgb(30, 101, 255);
+    --btn-cancel-hover: #ededed;
+
+
+    --text-color: #fff;
+
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.add-container {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    display: none;
+}
+
+.input-container {
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+
+
+    padding: 1rem;
+    gap: 1rem;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
+    border-radius: 10px;
+
+    height: 70vh;
+}
+
+.input-product-inventory {
+    height: auto;
+}
+
+/* INPUT FIELDS */
+
+.input-field {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+
+    gap: 1rem;
+
+}
+
+.input-field>div {
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+}
+
+
+
+
+/* TITLE */
+.title {
+    font-size: 2rem;
+
+    margin: auto 0;
+}
+
+/* ADD PRODUCT */
+
+.add-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+    & button,
+    #cancel {
+        padding: .5rem 1rem;
+
+        font-size: .8rem;
+
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    & button {
+        background-color: var(--btn-add);
+        border: 1px solid var(--btn-cancel-border);
+
+        color: var(--text-color);
+    }
+
+    & button:hover {
+        background-color: var(--btn-add-hover);
+    }
+
+    & #cancel {
+        background-color: #fff;
+        border: 1px solid var(--btn-cancel-border);
+
+        color: var(--btn-add);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & #cancel:hover {
+        background-color: var(--btn-cancel-hover);
+    }
+
+
+}
+
+
+
+
+
+/* ADD IMAGE SECTION */
+
+.item-image {
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}
+
+.preview-image {
+    height: 15rem;
+    width: 15rem;
+
+
+    border: 1px solid #ccc;
+
+    margin: .5rem auto;
+}
+
+.preview-image img {
+    width: 70%;
+    height: 100%;
+
+    display: none;
+
+    object-fit: contain;
+    object-position: center;
+
+    margin: auto auto;
+}
+
+
+#choose-image {
+    display: none;
+}
+
+.item-image>label[for="choose-image"] {
+    height: 3rem;
+    width: 10rem;
+
+
+    color: white;
+    background-color: rgb(30, 101, 255);
+
+
+    border-radius: 10px;
+    border: 1px solid rgb(0, 85, 255);
+
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    cursor: pointer;
+}
+
+.item-image>label[for="choose-image"]:hover {
+    background-color: rgb(3, 83, 255);
+}
+
+
+
+/* ADD ITEM INFORMATION SECTION */
+
+.item-info {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+.item-info input,
+.item-info select {
+    width: 100%;
+    height: 2.5rem;
+
+    margin-top: .3rem;
+
+    padding-inline: 1rem;
+
+    outline: none;
+    border: 2px solid #aaa;
+
+    border-radius: 5px;
+
+
+    font-size: 1.1rem;
+}
+
+
+
+.input-name {
+    font-size: 1.3rem;
+}

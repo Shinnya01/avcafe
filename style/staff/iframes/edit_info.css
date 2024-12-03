@@ -1,0 +1,112 @@
+:root {
+    --btn-add: rgb(30, 101, 255);
+    --btn-add-hover: rgb(3, 83, 255);
+
+    --btn-cancel-border: rgb(30, 101, 255);
+    --btn-cancel-hover: #ededed;
+
+
+    --text-color: #fff;
+
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+
+.add-container {
+    position: absolute;
+
+    top: 40%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px;
+
+    padding: 2rem;
+
+    background-color: #fff;
+    border-radius: 5px;
+
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+
+
+    padding: 1rem 0;
+
+    & input,
+    select,
+    option {
+        height: 2.5rem;
+
+        outline: none;
+        border: 1px solid rgb(113, 113, 113);
+
+        border-radius: 5px;
+
+        padding-inline: 10px;
+
+        font-size: 1.2rem;
+
+        margin: .3rem 0;
+    }
+
+}
+
+.add-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+    & button,
+    #cancel,
+    #cancelBtn {
+        width: 10rem;
+        height: 2.8rem;
+
+        border-radius: 10px;
+
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    & button {
+        background-color: var(--btn-add);
+        border: none;
+
+        color: var(--text-color);
+    }
+
+    & button:hover {
+        background-color: var(--btn-add-hover);
+    }
+
+    & #cancel,
+    #cancelBtn {
+        background-color: #fff;
+        border: 1px solid var(--btn-cancel-border);
+
+        color: var(--btn-add);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & #cancel:hover,
+    #cancelBtn:hover {
+        background-color: var(--btn-cancel-hover);
+    }
+
+
+}

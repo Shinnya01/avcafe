@@ -1,0 +1,213 @@
+:root {
+    --edit-btn: rgb(49, 49, 255);
+    --remove-btn: rgb(255, 50, 50);
+}
+
+
+* {
+    transition: all 0.3s ease;
+}
+
+.staffDetail,
+.userLogin {
+    display: none;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: auto;
+    width: 50vw;
+
+    padding: 1rem;
+    border-radius: 10px;
+
+    background-color: #002864d0;
+    backdrop-filter: blur(5px);
+
+
+    z-index: 100;
+
+    *:not(input) {
+        color: white;
+        list-style: none;
+    }
+
+}
+
+
+
+
+.user-info-container {
+    display: flex;
+    flex-direction: column;
+
+
+    margin: 1rem 0;
+}
+
+.staffDetail .left,
+.staffDetail-left {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+
+    padding: 1rem 0;
+
+
+    & li {
+        text-align: center;
+    }
+
+}
+
+
+.staffDetail .user-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1rem;
+
+    & ul,
+    li {
+        text-align: left;
+
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    & ul {
+        gap: 2rem;
+    }
+
+    & input {
+        height: 2.5rem;
+        width: 100%;
+
+        outline: none;
+
+        border: 1px solid #ccc;
+        font-size: 1.2rem;
+        padding-inline: 10px;
+    }
+}
+
+.email-input {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-top: 1rem;
+
+    & input {
+        height: 2.5rem;
+        width: 100%;
+
+        outline: none;
+
+        border: 1px solid #ccc;
+        font-size: 1.2rem;
+        padding-inline: 10px;
+    }
+}
+
+.staffDetail .info-action-btn {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-top: 1rem;
+
+    & button[name="log-out"],
+    & button[name="log-out-menu"] {
+        display: flex;
+        gap: .5rem;
+
+        font-size: 1.1rem;
+
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        padding-left: 1rem;
+    }
+}
+
+.actionBTN {
+    display: flex;
+    gap: 1rem;
+
+    & button,
+    div {
+        padding: .3rem 1rem;
+
+        border: none;
+        border-radius: 5px;
+    }
+
+    & button {
+        background-color: rgb(39, 39, 255);
+    }
+
+    & div {
+        background-color: rgb(255, 31, 31);
+    }
+}
+
+
+
+
+
+/* USER LOGIN */
+
+
+.userLogin .input-field {
+    display: flex;
+    flex-direction: column;
+
+
+    gap: 2rem;
+
+    & input {
+        width: 100%;
+        height: 2.5rem;
+
+        border: none;
+        border-radius: 5px;
+
+        padding-inline: 1rem;
+        outline: none;
+    }
+}
+
+.action-btn-staff-login {
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+        background-color: rgb(39, 39, 255);
+
+        width: 5rem;
+        height: 2rem;
+
+        border: none;
+        border-radius: 5px;
+    }
+
+    & a {
+        text-decoration: none;
+
+    }
+
+    & a:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,229 @@
+/* poppins font google */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+    scroll-behavior: smooth;
+}
+
+main {
+    min-height: 150vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #efefef;
+
+    scroll-margin-top: 120px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.slide-container {
+    margin: 0 30px;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+.product-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.image-box {
+    height: 150px;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+}
+
+.card-btn {
+    position: absolute;
+    bottom: 60px;
+    left: 5%;
+    transform: translateY(50%);
+
+    width: 90%;
+    height: 2rem;
+
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 30%;
+
+    gap: .5rem;
+
+    & button {
+        width: 100%;
+        height: 100%;
+
+        cursor: pointer;
+
+        border-radius: 5px;
+
+        border: none;
+
+    }
+
+}
+
+.card:hover .card-btn,
+.menu-item:hover .card-btn {
+    opacity: 1;
+    transform: translateY(30%);
+}
+
+.card-btn button:first-child {
+    background: rgb(39, 11, 176);
+    color: #fff;
+
+    text-align: center;
+}
+
+
+.product-details {
+    margin-top: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    padding: 15px;
+}
+
+.product-name {
+    font-size: 15px;
+}
+
+.swiper-navBtn {
+    color: darkblue;
+    height: 50px;
+    width: 50px;
+    transform: translateX(-50%);
+    transform: translateY(90%);
+    /* background: #fff; */
+    border-radius: 50%;
+}
+
+/* optional to pwedeng tanggalin tas balik yung background */
+.swiper-button-prev {
+    left: -15px;
+}
+
+.swiper-button-next {
+    right: -15px;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+    font-size: 30px;
+}
+
+.swiper-navBtn {
+    opacity: 0.4;
+}
+
+.swiper-navBtn:hover {
+    opacity: 1;
+}
+
+.swiper-pagination-bullet {
+    background-color: darkblue;
+}
+
+.line {
+    width: 50%;
+    height: 1px;
+    background-color: black;
+
+    margin: 3rem 0;
+}
+
+.menu {
+    height: auto;
+
+    margin-bottom: 5rem;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+}
+
+.tag {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tag.active {
+    background-color: darkblue;
+    color: white;
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tag:focus,
+.tag:hover {
+    background: darkblue;
+    color: white;
+    transition: 0.4s;
+}
+
+/* MENU */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+
+    text-transform: capitalize;
+}
+
+.menu-item {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+
+    position: relative;
+
+
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,75 @@
+create TABLE user (
+
+user_ID PRIMARY KEY AUTO_INCREMENT,
+user_name VARCHAR(255) NOT NULL,
+user_pass VARCHAR(255) NOT NULL,
+user_email VARCHAR(255) NOT NULL
+
+
+
+);
+
+
+create TABLE staff (
+
+staff_ID PRIMARY KEY AUTO_INCREMENT,
+staff_name VARCHAR(255) NOT NULL,
+staff_pass VARCHAR(255) NOT NULL,
+staff_email VARCHAR(255) NOT NULL,
+staff_reg_data DATETIME
+
+
+);
+
+create TABLE admin (
+
+admin_ID PRIMARY KEY AUTO_INCREMENT,
+admin_name VARCHAR(255) NOT NULL,
+admin_pass VARCHAR(255) NOT NULL
+admin_email VARCHAR(255) NOT NULL
+
+);
+
+create TABLE equipment (
+
+equipment_ID PRIMARY KEY AUTO_INCREMENT,
+equipment_name VARCHAR(255) NOT NULL,
+equipment_status VARCHAR(255)
+
+);
+
+create TABLE product (
+
+product_ID PRIMARY KEY AUTO_INCREMENT,
+product_name VARCHAR(255) NOT NULL,
+product_img VARCHAR(255) NULL,
+product_status VARCHAR(255) NOT NULL,
+
+
+);
+
+create TABLE cart (
+
+cart_ID PRIMARY KEY AUTO_INCREMENT,
+product_ID,
+user_ID,
+product_size VARCHAR(255) NOT NULL,
+product_quantity VARCHAR(255) NOT NULL,
+product_
+
+
+);
+
+
+
+
+create TABLE to_do_list(
+
+list_ID PRIMARY KEY AUTO_INCREMENT,
+list_name VARCHAR(255) NOT NULL,
+list_assigned VARCHAR(255) NOT NULL
+
+
+
+
+);

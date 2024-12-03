@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+:root {
+    --positive-btn: rgb(19, 63, 255);
+    --negative-btn: rgb(255, 0, 0);
+}
+
+* {
+    list-style: none;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+.place-Order-container {
+    height: calc(100vh - 7rem);
+
+    background-color: #c5c5c586;
+
+    display: grid;
+    grid-template-columns: 60% 1fr;
+
+
+    gap: 1rem;
+    padding: 1rem;
+
+}
+
+.place-Order-container .left {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+
+.place-Order-container .left,
+.place-Order-container .right {
+    background-color: white;
+
+    height: 80vh;
+    padding: 1rem;
+
+    border-radius: 20px;
+}
+
+.place-Order-container .left>div {
+
+    padding: 0 0 1rem 0;
+
+    border-radius: 5px;
+}
+
+.place-Order-container .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* SHIPPING ADDRESS / EDIT */
+.place-Order-container .user-delivery-info>div:first-child,
+.place-Order-container .productOrder-information>div:first-child {
+    padding: 0 1rem 0 0;
+}
+
+.place-Order-container .user-delivery-info>div:not(:first-child),
+.place-Order-container .productOrder-information>div:not(:first-child) {
+    padding: .5rem;
+}
+
+
+.place-Order-container .shippingAddress-header,
+.place-Order-container .user-bought-product-info-header {
+    display: flex;
+
+    background-color: aliceblue;
+
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.place-Order-container .shippingAddress-header {
+    justify-content: space-between;
+}
+
+
+
+/* USER PERSONAL INFO / NAME _ ADDRESS */
+.user-product-info::-webkit-scrollbar,
+.userPersonal-information::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.user-product-info::-webkit-scrollbar-thumb,
+.userPersonal-information::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.28);
+    border-radius: 20px;
+}
+
+.userPersonal-information {
+    height: 10vh;
+
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.place-Order-container .userPersonal-information ul {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: .5rem;
+}
+
+
+/* USER BOUGHT PRODUCT */
+.user-product-info {
+    height: 65vh;
+    overflow: auto;
+}
+
+
+
+.user-product-info ul {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 20%;
+    gap: 1rem;
+    justify-items: start;
+
+
+
+    & img {
+        background-color: white;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    & li {
+        font-size: 1.5rem;
+
+        text-transform: capitalize;
+    }
+}
+
+
+
+
+/* PAYMENT METHOD */
+
+.place-Order-container .payment-method {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    gap: 1rem;
+
+}
+
+.place-Order-container .payment-selection-container {
+    padding: 1rem 1rem;
+
+    width: 100%;
+    height: 3.5rem;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    & img {
+        margin: 0 auto;
+
+    }
+}
+
+.place-Order-container .payment-selection {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+
+    height: 100%;
+}
+
+
+.place-Order-container .payment-method .payment-selection-container:has(input:checked) {
+    border-color: var(--positive-btn);
+
+    & input {
+        accent-color: var(--positive-btn);
+    }
+}
+
+.place-Order-container .payment-method .payment-selection-container:has(input:checked):not(label[for="COD_payment"]) {
+    height: auto;
+
+    & img {
+        width: 25%;
+        opacity: 1;
+    }
+}
+
+.place-Order-container .payment-method .payment-selection-container:has(input:not(input:checked)):not(label[for="COD_payment"]) {
+    height: auto;
+
+    & img {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+/* ORDER SUMMARY */
+
+
+.order-summary>div {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.order-summary,
+.place-order {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.place-order .product-total-order {
+    display: flex;
+    justify-content: space-between;
+}
+
+.place-order button {
+    background-color: var(--positive-btn);
+
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 1.3rem;
+    padding: .5rem;
+}
+
+.return {
+    width: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+    color: black;
+
+    & i {
+        font-size: 1.8rem;
+    }
+}
+
+hr {
+    margin: .5rem 0;
+}
