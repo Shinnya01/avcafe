@@ -195,7 +195,8 @@ if (isset($_SESSION['user_ID'])) {
       .log-success,
       .update-success,
       .item-removed,
-      .log-out {
+      .log-out,
+      .register {
         position: fixed;
         top: -10rem;
         left: 50%;
@@ -237,6 +238,22 @@ if (isset($_SESSION['user_ID'])) {
 
         setTimeout(function() {
           logOut.style.display = 'none';
+        }, 3000);
+      </script>
+    <?php } else if (isset($_GET['register'])) { ?>
+      <div class="register">
+        <i class="bi bi-check"></i>
+        <p>Registered successfully</p>
+      </div>
+      <script>
+        const registerSuccess = document.querySelector('.register');
+
+        setTimeout(function() {
+          registerSuccess.style.top = '3rem';
+        }, 500);
+
+        setTimeout(function() {
+          registerSuccess.style.display = 'none';
         }, 3000);
       </script>
     <?php } ?>

@@ -122,7 +122,7 @@ switch (isset($_POST)) {
             $stmt->bindParam(':user_email', $user_email);
 
             $stmt->execute();
-            header("Location: ../user/userHomepage1.php");
+            header("Location: ../user/userHomepage1.php?register");
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
                 header("Location: ../user/userHomepage1.php?emailError");
@@ -145,7 +145,7 @@ switch (isset($_POST)) {
             $stmt->bindParam(':user_email', $user_email);
 
             $stmt->execute();
-            header("Location: ../user/menu5.php");
+            header("Location: ../user/menu5.php?register");
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
                 header("Location: ../user/menu5.php?emailError");
