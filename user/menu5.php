@@ -202,6 +202,7 @@ if (isset($_SESSION['user_ID'])) {
                 align-items: center;
 
                 gap: 1rem;
+                z-index: 100;
             }
         </style>
         <?php if (isset($_GET['logout'])) { ?>
@@ -247,7 +248,7 @@ if (isset($_SESSION['user_ID'])) {
                 <script>
                     const logSuccess = document.querySelector('.log-success');
                     setTimeout(function() {
-                        logSuccess.style.top = '7rem';
+                        logSuccess.style.top = '2rem';
                     }, 500);
 
                     setTimeout(function() {
@@ -420,7 +421,7 @@ if (isset($_SESSION['user_ID'])) {
                         </div>
 
                         <div class="input-field" style="margin: 1rem 0;">
-                            <input type="text" name="user_email" placeholder="Enter Email: " autocomplete="off">
+                            <input type="text" name="user_name" placeholder="Enter Name: " autocomplete="off">
                             <input type="password" name="user_pass" placeholder="Enter Password: ">
                             <input type="email" name="user_email" placeholder="Enter Email: " autocomplete="off">
                         </div>
@@ -633,7 +634,104 @@ if (isset($_SESSION['user_ID'])) {
                 <!-- ========================================================================= -->
                 <form action="../config/user/menu-config.php" method="post">
                     <input type="hidden" name="user_ID" value="<?php echo $user_ID ?>">
-                    <?php if (isset($_GET['productRemoved'])) { ?>
+                    <?php if (isset($_GET['itemRemoved'])) { ?>
+                        <aside class="cart-container" style="position: fixed; top: 0; right: 0%;">
+                            <div class="cart-container-header">
+                                <h3>CART</h3>
+                                <h3 style="cursor: pointer;"><i class="bi bi-x"></i></h3>
+                            </div>
+                            <?php if (count($result) > 0): ?>
+                                <ul class="product-order-container-header">
+                                    <li>ADD ONS</li>
+                                    <li>PRICE</li>
+                                    <li>QUANTITY</li>
+                                    <li>TOTAL</li>
+                                </ul>
+                                <div class="order-container">
+                                    <?php
+                                    $addOn_Price = 0;
+                                    foreach ($result as $cart):
+                                        switch ($cart['product_addOns']) {
+                                            case 'No Add Ons':
+                                                $addOn_Price = 0;
+                                                break;
+                                            case 'Espresso Shot':
+                                                $addOn_Price = 40;
+                                                break;
+                                            case 'Syrup':
+                                                $addOn_Price = 15;
+                                                break;
+                                            case 'Sauce':
+                                                $addOn_Price = 20;
+                                                break;
+                                            case 'Sea Salt':
+                                                $addOn_Price = 40;
+                                                break;
+                                        } ?>
+                                        <div class="cart-product-container">
+                                            <input type="hidden" name="cart_ID" value="<?php echo $cart['cart_ID'] ?>">
+                                            <section class="left">
+                                                <img class="product-img" src="../img/products/<?php echo $cart['product_img'] ?>" alt="Product Image">
+                                                <input type="hidden" name="product_img-edit" value="../img/products/<?php echo $cart['product_img'] ?>">
+                                                <div class="product-order-info">
+                                                    <ul>
+                                                        <li>
+                                                            <?php echo $cart['product_name']; ?>
+                                                            <input type="hidden" name="product_name-edit" value="<?php echo $cart['product_name']; ?>">
+                                                        </li>
+                                                        <li>Add Ons: <?php echo $cart['product_addOns']; ?></li>
+                                                        <li>Size:
+                                                            <?php echo $cart['product_size']; ?>
+                                                            <input type="hidden" name="product_size" value="<?php echo $cart['product_size']; ?>">
+                                                        </li>
+                                                        <li>
+                                                            <div class="editProductCart">EDIT</div>
+                                                            <div class="removeProductCart">REMOVE</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </section>
+                                            <ul class="right">
+                                                <li>
+                                                    <?php echo number_format((float)$addOn_Price * $cart['product_quantity'], 0, '.', ','); ?>
+                                                </li>
+                                                <li>
+                                                    <?php echo number_format((float)$cart['product_price'] * $cart['product_quantity'], 0, '.', ','); ?>
+                                                    <input type="hidden" name="product_price" value="<?php echo $cart['product_price'] ?>">
+                                                </li>
+                                                <li>
+                                                    <?php echo $cart['product_quantity']; ?>
+                                                    <input type="hidden" name="product_quantity" value="<?php echo $cart['product_quantity'] ?>">
+                                                </li>
+                                                <li>
+                                                    <?php
+                                                    echo number_format((float)$cart['total_price'] = ($addOn_Price + $cart['product_price']) * $cart['product_quantity'], 0, '.', ',');
+                                                    ?>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr />
+                                        <?php $subTotal += $cart['total_price'] ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <ul class="product-order-container-footer">
+                                    <li></li>
+                                    <li></li>
+                                    <li>SUBTOTAL</li>
+                                    <li><?php echo number_format((float)$subTotal, 0, '.', ','); ?></li>
+                                </ul>
+                                <button class="checkout-btn" type="submit" name="check-out">CHECK OUT</button>
+                            <?php else: ?>
+                                <h2 style="text-align: center; margin: 10%; color: white;">YOUR CART IS EMPTY</h2>
+                                <div class="checkout-btn" style="cursor: pointer;">CHECK OUT</div>
+                                <script>
+                                    clickedCheckout = document.querySelector('.checkout-btn');
+                                    clickedCheckout.addEventListener('click', () => {
+                                        alert('Cart is Empty');
+                                    });
+                                </script>
+                            <?php endif; ?>
                         </aside>
                     <?php } ?>
 
@@ -695,10 +793,10 @@ if (isset($_SESSION['user_ID'])) {
                                         </section>
                                         <ul class="right">
                                             <li>
-                                                <?php echo number_format((float)$addOn_Price, 0, '.', ','); ?>
+                                                <?php echo number_format((float)$addOn_Price * $cart['product_quantity'], 0, '.', ','); ?>
                                             </li>
                                             <li>
-                                                <?php echo number_format((float)$cart['product_price'], 0, '.', ','); ?>
+                                                <?php echo number_format((float)$cart['product_price'] * $cart['product_quantity'], 0, '.', ','); ?>
                                                 <input type="hidden" name="product_price" value="<?php echo $cart['product_price'] ?>">
                                             </li>
                                             <li>

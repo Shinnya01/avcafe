@@ -102,7 +102,7 @@ $admin_ID = $_SESSION['admin_ID'];
                     </div>
                     <div class="actionBTN">
                         <button name="saveAdminDetail">SAVE</button>
-                        <div id="cancelUserDetail" style="cursor:pointer" onclick="location.reload()">CANCEL</div>
+                        <div id="cancelUserDetail" style="cursor:pointer">CANCEL</div>
                     </div>
 
                 </div>

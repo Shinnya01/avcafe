@@ -141,7 +141,7 @@ $staff_ID = $_SESSION['staff_ID'];
           </div>
           <div class="actionBTN">
             <button name="saveStaffDetail">SAVE</button>
-            <div id="cancelUserDetail" style="cursor:pointer" onclick="location.reload()">CANCEL</div>
+            <div id="cancelUserDetail" style="cursor:pointer" onclick="document.querySelector('.staffDetail').style.display='none'">CANCEL</div>
           </div>
 
         </div>

@@ -11,13 +11,9 @@ document.querySelector('.bi-person').addEventListener('click', () =>{
 
 document.querySelector('#cancelUserDetail').addEventListener('click', ()=>{
     adminInfo.style.display ='none'
-
-    location.reload();
 })
 
 
 document.querySelector('.bi-x').addEventListener('click', ()=>{
     adminInfo.style.display = 'none'
-
-    location.reload();
 })
