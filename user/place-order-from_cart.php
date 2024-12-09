@@ -522,11 +522,7 @@ require_once "../config/connect.php";
           referrerpolicy="no-referrer-when-downgrade"
           class="shop-location"></iframe>
 
-        <ul class="shop-info">
-          <li>
-            <i class="bi bi-geo-alt"></i>56 G. Del Pilar, Lubao, 2005 Pampanga
-          </li>
-        </ul>
+
       </section>
 
       <!-- SHOP EMAIL -->
@@ -568,8 +564,9 @@ require_once "../config/connect.php";
         </ul>
       </section>
     </div>
-    <div class="reserved" style="display: flex; color: white; justify-content: flex-start; align-items: flex-end">
-      <b style="margin: 0 10px 0 2px;">&copy;</b> 2024 Av Café All rights reserved
+    <div class="reserved" style="display: flex; color: white; justify-content: space-between; align-items: flex-end">
+      <div> <i class="bi bi-geo-alt"></i> 56 G. Del Pilar, Lubao, 2005 Pampanga</div>
+      <div>&copy; 2024 Av Café All rights reserved</div>
     </div>
   </footer>
 

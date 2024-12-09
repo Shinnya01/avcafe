@@ -914,11 +914,7 @@ if (isset($_SESSION['user_ID'])) {
           referrerpolicy="no-referrer-when-downgrade"
           class="shop-location"></iframe>
 
-        <ul class="shop-info">
-          <li>
-            <i class="bi bi-geo-alt"></i>56 G. Del Pilar, Lubao, 2005 Pampanga
-          </li>
-        </ul>
+
       </section>
 
       <!-- SHOP EMAIL -->
@@ -960,8 +956,9 @@ if (isset($_SESSION['user_ID'])) {
         </ul>
       </section>
     </div>
-    <div class="reserved" style="display: flex; color: white; justify-content: flex-start; align-items: flex-end">
-      &copy; 2024 Av Café All rights reserved
+    <div class="reserved" style="display: flex; color: white; justify-content: space-between; align-items: flex-end">
+      <div> <i class="bi bi-geo-alt"></i> 56 G. Del Pilar, Lubao, 2005 Pampanga</div>
+      <div>&copy; 2024 Av Café All rights reserved</div>
     </div>
   </footer>
 

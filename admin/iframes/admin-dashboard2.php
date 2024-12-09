@@ -278,7 +278,7 @@ $totalStaff  = $result['totalStaff'];
             const listSuccess = document.querySelector('.addList');
 
             setTimeout(function() {
-                listSuccess.style.top = '12.5rem';
+                listSuccess.style.top = '1rem';
             }, 500);
 
             setTimeout(function() {
@@ -295,7 +295,7 @@ $totalStaff  = $result['totalStaff'];
             const invalid = document.querySelector('.invalid');
 
             setTimeout(function() {
-                invalid.style.top = '12.5rem';
+                invalid.style.top = '1rem';
             }, 500);
 
             setTimeout(function() {
