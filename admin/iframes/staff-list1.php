@@ -18,6 +18,9 @@
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+  <link rel="stylesheet" href="../../style/staff/iframes/search.css">
 </head>
 
 <body>
@@ -33,6 +36,20 @@
           <th>REGISTRATION DATE</th>
 
           <th><button class="new">NEW</button></th>
+          <th>
+            <i class="bi bi-search" id="showSearchBtn" onclick="showSearch()"></i>
+            <i class="bi bi-x" id="removeSearchBtn" onclick="removeSearch()" style="display: none; cursor:pointer"></i>
+
+            <form action="staff-list1.php" method="post">
+              <div id="search-box" style="display: none;">
+                <input type="text" name="findStaff" id="searchField">
+
+                <input type="submit" id="submitSearch" style="display:none">
+                <label for="submitSearch"> <i class="bi bi-search"></i></label>
+              </div>
+            </form>
+
+          </th>
         </tr>
       </thead>
       <?php
@@ -40,46 +57,107 @@
       require_once "../../config/connect.php";
 
 
-      $sql = "SELECT * FROM staff";
-      $stmt = $pdo->prepare($sql);
-      $stmt->execute();
 
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      if (isset($_POST['findStaff'])) {
+        $findStaff = $_POST['findStaff'] . '%';
+
+        $sql = "SELECT * FROM staff WHERE staff_name LIKE :findStaff";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':findStaff', $findStaff);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (COUNT($result) > 0) {
       ?>
-      <tbody>
+          <tbody>
+            <?php
+            $staff_count = 1;
+            foreach ($result as $staff): ?>
+              <tr>
+                <td><?php echo $staff_count ?></td>
+                <td><?php echo $staff['staff_ID'] ?>
+                  <input type="hidden" name="staff_ID" value="<?php echo  $staff['staff_ID'] ?>">
+                </td>
+                <td><?php echo $staff['staff_name'] ?>
+                  <input type="hidden" name="staff_name" value="<?php echo $staff['staff_name'] ?>">
+                </td>
+                <td><?php echo $staff['staff_pass'] ?>
+                  <input type="hidden" name="staff_pass" value="<?php echo $staff['staff_pass'] ?>">
+                </td>
+                <td><?php echo $staff['staff_email'] ?>
+                  <input type="hidden" name="staff_email" value="<?php echo $staff['staff_email'] ?>">
+                </td>
+                <td><?php echo $staff['staff_reg_date'] ?></td>
+
+
+                <td style="position: relative">
+                  <i class="bi bi-three-dots-vertical pop-menu"></i>
+
+                  <div class="action-menu" style="position: absolute">
+                    <button name="editStaff-list">EDIT</button>
+                    <button name="removeStaff-list" style="background-color: rgb(255, 26, 26);">REMOVE</button>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            <?php
+              $staff_count++;
+            endforeach;  ?>
+          </tbody>
         <?php
-        $staff_count = 1;
-        foreach ($result as $staff): ?>
+        } else {
+        ?>
           <tr>
-            <td><?php echo $staff_count ?></td>
-            <td><?php echo $staff['staff_ID'] ?>
-              <input type="hidden" name="staff_ID" value="<?php echo  $staff['staff_ID'] ?>">
-            </td>
-            <td><?php echo $staff['staff_name'] ?>
-              <input type="hidden" name="staff_name" value="<?php echo $staff['staff_name'] ?>">
-            </td>
-            <td><?php echo $staff['staff_pass'] ?>
-              <input type="hidden" name="staff_pass" value="<?php echo $staff['staff_pass'] ?>">
-            </td>
-            <td><?php echo $staff['staff_email'] ?>
-              <input type="hidden" name="staff_email" value="<?php echo $staff['staff_email'] ?>">
-            </td>
-            <td><?php echo $staff['staff_reg_date'] ?></td>
-
-
-            <td style="position: relative">
-              <i class="bi bi-three-dots-vertical pop-menu"></i>
-
-              <div class="action-menu" style="position: absolute">
-                <button name="editStaff-list">EDIT</button>
-                <button name="removeStaff-list" style="background-color: rgb(255, 26, 26);">REMOVE</button>
-              </div>
-            </td>
+            <td colspan="10" style="text-align: center;">No seller found</td>
           </tr>
         <?php
-          $staff_count++;
-        endforeach;  ?>
-      </tbody>
+        }
+      } else {
+
+        $sql = "SELECT * FROM staff";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        ?>
+        <tbody>
+          <?php
+          $staff_count = 1;
+          foreach ($result as $staff): ?>
+            <tr>
+              <td><?php echo $staff_count ?></td>
+              <td><?php echo $staff['staff_ID'] ?>
+                <input type="hidden" name="staff_ID" value="<?php echo  $staff['staff_ID'] ?>">
+              </td>
+              <td><?php echo $staff['staff_name'] ?>
+                <input type="hidden" name="staff_name" value="<?php echo $staff['staff_name'] ?>">
+              </td>
+              <td><?php echo $staff['staff_pass'] ?>
+                <input type="hidden" name="staff_pass" value="<?php echo $staff['staff_pass'] ?>">
+              </td>
+              <td><?php echo $staff['staff_email'] ?>
+                <input type="hidden" name="staff_email" value="<?php echo $staff['staff_email'] ?>">
+              </td>
+              <td><?php echo $staff['staff_reg_date'] ?></td>
+
+
+              <td style="position: relative">
+                <i class="bi bi-three-dots-vertical pop-menu"></i>
+
+                <div class="action-menu" style="position: absolute">
+                  <button name="editStaff-list">EDIT</button>
+                  <button name="removeStaff-list" style="background-color: rgb(255, 26, 26);">REMOVE</button>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+          <?php
+            $staff_count++;
+          endforeach;  ?>
+        </tbody>
+      <?php } ?>
     </table>
   </section>
 
@@ -257,6 +335,8 @@
   <!-- <script src="../../script/admin/staff-list.js"></script> -->
 
   <script src="../../script/admin/show-hide-add-staff-list1.js"></script>
+
+  <script src="../../script/staff/search.js"></script>
 </body>
 
 </html>

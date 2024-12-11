@@ -1,0 +1,62 @@
+th:has(.bi-search) {
+    color: black;
+
+    position: relative;
+
+
+    align-items: center;
+
+    z-index: 1000;
+
+    & .bi-search {
+        cursor: pointer;
+    }
+}
+
+
+th #search-box {
+
+    position: absolute;
+
+    right: 3.5rem;
+
+    top: 1rem;
+
+    align-items: center;
+
+    background-color: white;
+
+}
+
+
+th #search-box input {
+
+
+
+    height: 2rem;
+    width: 11rem;
+
+    z-index: 100;
+
+    outline: none;
+    border: 1px solid black;
+    border-right: none;
+    padding-inline: 1rem;
+
+
+}
+
+
+label[for="submitSearch"] {
+
+
+    border: 1px solid black;
+    border-left: none;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

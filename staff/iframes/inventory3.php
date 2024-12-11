@@ -19,6 +19,7 @@
     href="../../style/staff/iframes/insertProduct.css" />
 
   <link rel="stylesheet" href="../../style/staff/removeProduct.css">
+  <link rel="stylesheet" href="../../style/staff/iframes/search.css">
 </head>
 
 <body>
@@ -38,6 +39,21 @@
           <th>
             <button class="new">NEW</butt>
           </th>
+
+          <th>
+            <i class="bi bi-search" id="showSearchBtn" onclick="showSearch()"></i>
+            <i class="bi bi-x" id="removeSearchBtn" onclick="removeSearch()" style="display: none; cursor:pointer"></i>
+
+            <form action="inventory3.php" method="post">
+              <div id="search-box" style="display: none;">
+                <input type="text" name="findProduct" id="searchField">
+
+                <input type="submit" id="submitSearch" style="display:none">
+                <label for="submitSearch"> <i class="bi bi-search"></i></label>
+              </div>
+            </form>
+
+          </th>
         </tr>
       </thead>
       <?php
@@ -45,60 +61,137 @@
       require_once "../../config/connect.php";
 
 
-      $sql = "SELECT * FROM product";
-      $stmt = $pdo->prepare($sql);
-      $stmt->execute();
+      if (isset($_POST['findProduct'])) {
+        $findProduct = $_POST['findProduct'] . '%';
 
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $sql = "SELECT * FROM product WHERE product_name LIKE :findProduct";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':findProduct', $findProduct);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (COUNT($result) > 0) {
+
+
       ?>
-      <tbody>
+          <tbody>
+
+            <?php
+            $product_count = 1;
+            foreach ($result as $product): ?>
+              <tr style="text-transform: capitalize;">
+                <td><?php echo $product_count ?></td>
+
+                <td class="product-img"><img src="../../img/products/<?php echo $product['product_img'] ?>"></td>
+
+                <td>
+                  <?php echo $product['product_ID'] ?>
+                  <input type="hidden" name="product_ID" value="<?php echo $product['product_ID'] ?>">
+                </td>
+
+                <td>
+                  <?php echo $product['product_name'] ?>
+                  <input type="hidden" name="product_name" value="<?php echo $product['product_name'] ?>">
+                </td>
+
+                <td style="text-align: center;">
+                  <?php echo $product['product_price'] ?>
+                  <input type="hidden" name="product_price" value="<?php echo $product['product_price'] ?>">
+                </td>
+
+                <td><?php echo $product['product_category'] ?></td>
+
+                <td>
+                  <?php echo $product['product_status'] ?>
+                  <input type="hidden" name="product_status" value="<?php echo $product['product_status'] ?>">
+                </td>
+
+                <td><?php echo $product['product_orders'] ?></td>
+
+                <td style="position: relative">
+                  <i class="bi bi-three-dots-vertical pop-menu"></i>
+
+                  <div class="action-menu" style="position: absolute">
+                    <button name="editProduct">EDIT</button>
+                    <button name="removeProduct">REMOVE</button>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+
+            <?php
+              $product_count++;
+            endforeach;
+          } else {
+            ?>
+            <tr>
+              <td colspan="10" style="text-align: center;">No product found</td>
+            </tr>
+          <?php
+          } ?>
+
+          </tbody>
+
 
         <?php
-        $product_count = 1;
-        foreach ($result as $product): ?>
-          <tr style="text-transform: capitalize;">
-            <td><?php echo $product_count ?></td>
+      } else {
 
-            <td class="product-img"><img src="../../img/products/<?php echo $product['product_img'] ?>"></td>
+        $sql = "SELECT * FROM product";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
 
-            <td>
-              <?php echo $product['product_ID'] ?>
-              <input type="hidden" name="product_ID" value="<?php echo $product['product_ID'] ?>">
-            </td>
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+          <tbody>
 
-            <td>
-              <?php echo $product['product_name'] ?>
-              <input type="hidden" name="product_name" value="<?php echo $product['product_name'] ?>">
-            </td>
+            <?php
+            $product_count = 1;
+            foreach ($result as $product): ?>
+              <tr style="text-transform: capitalize;">
+                <td><?php echo $product_count ?></td>
 
-            <td style="text-align: center;">
-              <?php echo $product['product_price'] ?>
-              <input type="hidden" name="product_price" value="<?php echo $product['product_price'] ?>">
-            </td>
+                <td class="product-img"><img src="../../img/products/<?php echo $product['product_img'] ?>"></td>
 
-            <td><?php echo $product['product_category'] ?></td>
+                <td>
+                  <?php echo $product['product_ID'] ?>
+                  <input type="hidden" name="product_ID" value="<?php echo $product['product_ID'] ?>">
+                </td>
 
-            <td>
-              <?php echo $product['product_status'] ?>
-              <input type="hidden" name="product_status" value="<?php echo $product['product_status'] ?>">
-            </td>
+                <td>
+                  <?php echo $product['product_name'] ?>
+                  <input type="hidden" name="product_name" value="<?php echo $product['product_name'] ?>">
+                </td>
 
-            <td><?php echo $product['product_orders'] ?></td>
+                <td style="text-align: center;">
+                  <?php echo $product['product_price'] ?>
+                  <input type="hidden" name="product_price" value="<?php echo $product['product_price'] ?>">
+                </td>
 
-            <td style="position: relative">
-              <i class="bi bi-three-dots-vertical pop-menu"></i>
+                <td><?php echo $product['product_category'] ?></td>
 
-              <div class="action-menu" style="position: absolute">
-                <button name="editProduct">EDIT</button>
-                <button name="removeProduct">REMOVE</button>
-              </div>
-            </td>
-          </tr>
+                <td>
+                  <?php echo $product['product_status'] ?>
+                  <input type="hidden" name="product_status" value="<?php echo $product['product_status'] ?>">
+                </td>
 
-        <?php
-          $product_count++;
-        endforeach; ?>
-      </tbody>
+                <td><?php echo $product['product_orders'] ?></td>
+
+                <td style="position: relative">
+                  <i class="bi bi-three-dots-vertical pop-menu"></i>
+
+                  <div class="action-menu" style="position: absolute">
+                    <button name="editProduct">EDIT</button>
+                    <button name="removeProduct">REMOVE</button>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+
+            <?php
+              $product_count++;
+            endforeach; ?>
+          </tbody>
+        <?php } ?>
     </table>
   </section>
   <section class="add-container" style="z-index: 10">
@@ -326,6 +419,7 @@
   <script src="../../script/staff/preview-img.js"></script>
 
   <script src="../../script/staff/show-hide-add-inventory2.js"></script>
+  <script src="../../script/staff/search.js"></script>
 </body>
 
 </html>
