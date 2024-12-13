@@ -9,11 +9,12 @@ $admin_ID = $_SESSION['admin_ID'];
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Admin Homepage</title>
 
     <!-- <link rel="stylesheet" href="../../style/staff/homepage-admin.css" /> -->
     <link rel="stylesheet" href="../style/staff/homepage-admin.css" />
     <link rel="stylesheet" href="../style/admin/admin-detail3.css">
+    <link rel="shortcut icon" href="../img/logo/icon.png" type="image/x-icon">
 
 
     <link

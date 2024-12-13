@@ -8,10 +8,11 @@ $staff_ID = $_SESSION['staff_ID'];
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Staff Homepage</title>
 
   <!-- <link rel="stylesheet" href="../../style/staff/homepage-admin.css" /> -->
   <link rel="stylesheet" href="../style/staff/homepage-admin.css" />
+  <link rel="shortcut icon" href="../img/logo/icon.png" type="image/x-icon">
 
   <link
     rel="stylesheet"
