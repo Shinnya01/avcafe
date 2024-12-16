@@ -195,7 +195,6 @@
     </table>
   </section>
   <style>
-    .price-undefined,
     .fill-everything {
       position: fixed;
       top: -10rem;
@@ -240,22 +239,6 @@
 
       setTimeout(function() {
         fillUp.style.display = 'none';
-      }, 3000);
-    </script>
-  <?php } else if (isset($_GET['priceUndefined'])) { ?>
-    <div class="price-undefined">
-      <i class="bi bi-x"></i>
-      <p>Undefined Price! Please try again</p>
-    </div>
-    <script>
-      const noPrice = document.querySelector('.price-undefined');
-
-      setTimeout(function() {
-        noPrice.style.top = '.5rem';
-      }, 500);
-
-      setTimeout(function() {
-        noPrice.style.display = 'none';
       }, 3000);
     </script>
   <?php } ?>

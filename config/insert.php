@@ -12,7 +12,7 @@ switch (isset($_POST)) {
             $product_price = $_POST['product_price'];
 
             if ($_POST['price'] <= 0) {
-                header("Location: ../staff/iframes/inventory3.php?priceUndefined");
+                header("Location: ../staff/iframes/inventory3.php?fillEverything");
                 exit();
             }
 
