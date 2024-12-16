@@ -194,6 +194,71 @@
         <?php } ?>
     </table>
   </section>
+  <style>
+    .price-undefined,
+    .fill-everything {
+      position: fixed;
+      top: -10rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      padding: .5rem 3rem;
+
+      border-radius: 30px;
+
+      text-align: center;
+
+      z-index: 10;
+
+      background-color: #002050c7;
+      backdrop-filter: blur(5px);
+
+      transition: all .3s ease;
+
+
+      font-size: 1.5rem;
+
+      display: flex;
+      align-items: center;
+
+      gap: 1rem;
+
+      color: white;
+    }
+  </style>
+  <?php if (isset($_GET['fillEverything'])) { ?>
+    <div class="fill-everything">
+      <i class="bi bi-x"></i>
+      <p>Please fill up everything</p>
+    </div>
+    <script>
+      const fillUp = document.querySelector('.fill-everything');
+
+      setTimeout(function() {
+        fillUp.style.top = '.5rem';
+      }, 500);
+
+      setTimeout(function() {
+        fillUp.style.display = 'none';
+      }, 3000);
+    </script>
+  <?php } else if (isset($_GET['priceUndefined'])) { ?>
+    <div class="price-undefined">
+      <i class="bi bi-x"></i>
+      <p>Undefined Price! Please try again</p>
+    </div>
+    <script>
+      const noPrice = document.querySelector('.price-undefined');
+
+      setTimeout(function() {
+        noPrice.style.top = '.5rem';
+      }, 500);
+
+      setTimeout(function() {
+        noPrice.style.display = 'none';
+      }, 3000);
+    </script>
+  <?php } ?>
   <section class="add-container" style="z-index: 10">
     <form
       action="../../config/insert.php"

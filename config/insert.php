@@ -11,6 +11,11 @@ switch (isset($_POST)) {
             $product_category = $_POST['product_category'];
             $product_price = $_POST['product_price'];
 
+            if ($_POST['price'] <= 0) {
+                header("Location: ../staff/iframes/inventory3.php?priceUndefined");
+                exit();
+            }
+
             $product_status = $_POST['product_status'];
 
 
@@ -37,7 +42,9 @@ switch (isset($_POST)) {
 
             exit;
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+            if ($e->getCode() == 23000) {
+                header("Location: ../staff/iframes/inventory3.php?fillEverything");
+            }
         }
         break;
 
