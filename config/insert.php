@@ -11,10 +11,7 @@ switch (isset($_POST)) {
             $product_category = $_POST['product_category'];
             $product_price = $_POST['product_price'];
 
-            if ($_POST['price'] <= 0) {
-                header("Location: ../staff/iframes/inventory3.php?fillEverything");
-                exit();
-            }
+
 
             $product_status = $_POST['product_status'];
 

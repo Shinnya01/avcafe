@@ -1066,21 +1066,30 @@ if (isset($_SESSION['user_ID'])) {
 
                         <label>Add Ons:</label>
                         <div class="edit-add-ons">
-
-                            <input type="radio" name="product_addOns_edit" id="no_add_edit" value="No add ons" checked>
-                            <label for="no_add_edit">No add ons</label>
-
-                            <input type="radio" name="product_addOns_edit" id="espresso_shot_edit" value="Espresso Shot">
-                            <label for="espresso_shot_edit">Espresso Shot</label>
-
-                            <input type="radio" name="product_addOns_edit" id="syrup_edit" value="Syrup">
-                            <label for="syrup_edit">Syrup</label>
-
-                            <input type="radio" name="product_addOns_edit" id="sauce_edit" value="Sauce">
-                            <label for="sauce_edit">Sauce</label>
-
-                            <input type="radio" name="product_addOns_edit" id="sea_salt_edit" value="Sea Salt">
-                            <label for="sea_salt_edit">Sea Salt</label>
+                            <div>
+                                <input type="radio" name="product_addOns_edit" id="no_add_edit" value="No add ons" checked>
+                                <label for="no_add_edit">No add ons</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="product_addOns_edit" id="espresso_shot_edit" value="Espresso Shot">
+                                <label for="espresso_shot_edit">Espresso Shot</label>
+                                <span>+40</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="product_addOns_edit" id="syrup_edit" value="Syrup">
+                                <label for="syrup_edit">Syrup</label>
+                                <span>+15</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="product_addOns_edit" id="sauce_edit" value="Sauce">
+                                <label for="sauce_edit">Sauce</label>
+                                <span>+20</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="product_addOns_edit" id="sea_salt_edit" value="Sea Salt">
+                                <label for="sea_salt_edit">Sea Salt</label>
+                                <span>+40</span>
+                            </div>
 
                         </div>
 
